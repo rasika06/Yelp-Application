@@ -125,7 +125,7 @@ public class Populate {
                 String reviewId = (String) jsonObject.get("review_id");
                 Long stars = (Long) jsonObject.get("stars");
                 String date = (String) jsonObject.get("date");
-                SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-mm-dd"); 
+                SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd"); 
                 java.util.Date date1 = sdf1.parse(date); 
                  java.sql.Date sqlStartDate = new java.sql.Date(date1.getTime());
                  System.out.println(sqlStartDate);
@@ -287,7 +287,7 @@ public static void yelpUserTable() {
                 }
 
                 String yelpingSince = (String) jsonObject.get("yelping_since");
-                //SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-mm"); 
+                //SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM"); 
                 //java.util.Date date1 = sdf1.parse(yelpingSince); 
                  //java.sql.Date sqlStartDate = new java.sql.Date(date1.getTime());
                  //System.out.println(sqlStartDate);
@@ -302,7 +302,7 @@ public static void yelpUserTable() {
 
 
                 String sql1 = "INSERT INTO yelpuser (YELPINGSINCE, FUNNYVOTES, USEFULVOTES, COOLVOTES, REVIEWCOUNT, UNAME, USERID, FANS, AVGSTARS, UTYPE,COMPLIMENTS) VALUES ("
-                        + "to_date('" + yelpingSince + "','yyyy-mm')" + "," + funnyVotes + "," + usefulVotes + "," + coolVotes + ","
+                        + "to_date('" + yelpingSince + "','yyyy-MM')" + "," + funnyVotes + "," + usefulVotes + "," + coolVotes + ","
                         + reviewCount + "," + "'" + name + "'," + "'" + userId + "'," + "'" + fans + "'," + averageStars
                         + "," + "'" + type + "','" +compliments+"'"+ ") ";
                 preparedStmnt = connect.prepareStatement(sql1);
